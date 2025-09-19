@@ -39,5 +39,7 @@ WORKDIR /src
 ADD . /src/storage
 RUN chown -R www-data:www-data /src/storage
 
-# npm run dev 実行
-# CMD ["npm", "run", "dev"]
+# install TypeScript and type definitions
+WORKDIR /src
+ADD package*.json /src/
+RUN npm install --save-dev typescript @types/node @types/react @types/react-dom
